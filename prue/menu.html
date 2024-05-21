@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+
+            background-image: url("estilo/imagenes/cielo.jpg");
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9; 
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #7de9a1;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #007bff;
+        }
+        h2 i {
+            font-size: 1.5em;
+        }
+        p {
+            margin: 10px 0;
+            color: #555;
+            text-align: center;
+        }
+        .button {
+            display: block;
+            width: 80%;
+            max-width: 300px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Menú Principal</h1>
+        </header>
+        <section class="card">
+            <h2><i class="fas fa-user"></i></h2>
+            <p>Cada usuario tiene un perfil donde puede editar su información personal (nombre, correo, teléfono, etc.) y ver su rol (estudiante, profesor, administrador).</p>
+            <a href="perfil.html" class="button">Ir a Perfil de Usuario</a>
+        </section>
+        <section class="card">
+            <h2><i class="fas fa-file-alt"></i></h2>
+            <p>Permite a los estudiantes enviar sus propuestas de tesis para que los profesores y administradores las revisen y aprueben. Incluye detalles como título, resumen, objetivo, metodología y posibles supervisores.</p>
+            <a href="registroTesis.html" class="button">Ir a Registro de Propuesta de Tesis</a>
+        </section>
+        <section class="card">
+            <h2><i class="fas fa-check-circle"></i></h2>
+            <p>Para los profesores y administradores que revisan las propuestas. Pueden aprobar, rechazar o pedir cambios a las propuestas enviadas por los estudiantes.</p>
+            <a href="revision.html" class="button">Ir a Revisión y Aprobación de Propuestas</a>
+        </section>
+        <section class="card">
+            <h2><i class="fas fa-tasks"></i></h2>
+            <p>Después de que se aprueba una propuesta, esta interfaz permite asignar supervisores. Los supervisores pueden monitorear el progreso del estudiante, dar comentarios y fijar metas.</p>
+            <a href="gestion.html" class="button">Ir a Gestión de Supervisión</a>
+        </section>
+        <section class="card">
+            <h2><i class="fas fa-calendar-alt"></i></h2>
+            <p>Permite a estudiantes y supervisores programar reuniones y hacer seguimiento al progreso del trabajo de tesis. Incluye calendario, hitos clave y fechas límite.</p>
+            <a href="segimiento.html" class="button">Ir a Programación y Seguimiento del Progreso</a>
+        </section>
+        <section class="card">
+            <h2><i class="fas fa-upload"></i></h2>
+            <p>Permite a los estudiantes cargar su tesis para evaluación y aprobación. Puede tener un sistema para verificar la originalidad del contenido y antiplagio.</p>
+            <a href="entrega.html" class="button">Ir a Entrega del Trabajo de Titulación</a>
+        </section>
+        <section class="card">
+            <h2><i class="fas fa-star"></i></h2>
+            <p>Para que profesores y administradores evalúen el trabajo final de los estudiantes. Pueden calificar, hacer comentarios y aprobar o rechazar la entrega.</p>
+            <a href="evaluacion.html" class="button">Ir a Evaluación del Trabajo Final</a>
+        </section>
+        <section class="card">
+            <h2><i class="fas fa-comments"></i></h2>
+            <p>Después de la evaluación, permite a los estudiantes recibir retroalimentación y comentarios sobre su tesis. También los estudiantes pueden dejar comentarios sobre su experiencia.</p>
+            <a href="retroalimentacion.html" class="button">Ir a Retroalimentación y Comentarios</a>
+        </section>
+        <section class="card">
+            <h2><i class="fas fa-chart-bar"></i></h2>
+            <p>Para los administradores, permite generar reportes y estadísticas sobre el proceso de tesis, como el número de tesis aprobadas, tiempo promedio para la titulación, etc.</p>
+            <a href="reporte.html" class="button">Ir a Reportes y Estadísticas</a>
+        </section>
+    </div>
+</body>
+</html>

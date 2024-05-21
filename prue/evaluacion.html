@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Evaluación del Trabajo Final</title>
+    <link rel="stylesheet" href="estilo/evaluacion.css">
+</head>
+<body>
+    <h1>Evaluación del Trabajo Final</h1>
+
+    <div class="container">
+        <form id="evaluationForm">
+            <div class="form-group">
+                <label for="studentName">Nombre del Estudiante:</label>
+                <input type="text" id="studentName" name="studentName" required>
+            </div>
+            <div class="form-group">
+                <label for="workTitle">Título del Trabajo:</label>
+                <input type="text" id="workTitle" name="workTitle" required>
+            </div>
+            <div class="form-group">
+                <label for="grade">Calificación:</label>
+                <select id="grade" name="grade" required>
+                    <option value="">Seleccione la calificación</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comments">Comentarios:</label>
+                <textarea id="comments" name="comments" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="submitEvaluation('approve')">Aprobar</button>
+                <button type="button" onclick="submitEvaluation('reject')">Rechazar</button>
+                <button type="button" onclick="submitEvaluation('requestChanges')">Pedir Cambios</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Universidad ULEAM. Todos los derechos reservados.</p>
+    </div>
+
+    <script>
+        function submitEvaluation(action) {
+            const studentName = document.getElementById('studentName').value;
+            const workTitle = document.getElementById('workTitle').value;
+            const grade = document.getElementById('grade').value;
+            const comments = document.getElementById('comments').value;
+
+            if (action === 'approve') {
+                alert(`El trabajo de ${studentName} titulado "${workTitle}" ha sido aprobado.`);
+            } else if (action === 'reject') {
+                alert(`El trabajo de ${studentName} titulado "${workTitle}" ha sido rechazado.`);
+            } else if (action === 'requestChanges') {
+                alert(`Se han solicitado cambios para el trabajo de ${studentName} titulado "${workTitle}".`);
+            }
+
+            // Aquí puedes agregar la lógica para enviar los datos al servidor.
+            console.log({
+                studentName,
+                workTitle,
+                grade,
+                comments,
+                action
+            });
+        }
+    </script>
+</body>
+</html>
+

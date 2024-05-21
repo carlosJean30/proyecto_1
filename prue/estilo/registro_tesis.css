@@ -1,0 +1,69 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(imagenes/imag3.jpg);
+}
+
+h1 {
+    color: #333;
+    background-color: #e2e2e2; /* Slight gray background */
+    padding: 6px 12px; /* Further reduced padding */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Soft shadow for depth */
+    margin-bottom: 10px; /* Reduced margin */
+    width: 30%; /* Even smaller width for the title */
+    text-align: center; /* Center text */
+}
+
+form {
+    background-color: #fff;
+    padding: 10px; /* Reduced padding */
+    width: 30%; /* Smaller width for the form */
+    max-width: 400px; /* Smaller max width */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    font-weight: bold;
+    margin: 6px 0; /* Further reduced spacing */
+    align-self: flex-start;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 6px; /* Reduced padding */
+    margin-bottom: 6px; /* Reduced spacing */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 60px; /* Further reduced height */
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px; /* Adjusted padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}

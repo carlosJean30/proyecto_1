@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Retroalimentación y Comentarios</title>
+    <link rel="stylesheet" href="estilo/retroalimentacion.css">
+</head>
+<body>
+    <h1>Retroalimentación y Comentarios</h1>
+    <p>Interfaz para que estudiantes dejen la experiencia y comentarios sobre su experiencia.</p>
+
+    <div class="container">
+        <form id="feedbackForm">
+            <div class="form-group">
+                <label for="studentName">Nombre del Estudiante:</label>
+                <input type="text" id="studentName" name="studentName" required>
+            </div>
+            <div class="form-group">
+                <label for="professorName">Nombre del Profesor:</label>
+                <input type="text" id="professorName" name="professorName" required>
+            </div>
+            <div class="form-group">
+                <label for="professorRating">Calificación del Profesor:</label>
+                <select id="professorRating" name="professorRating" required>
+                    <option value="">Seleccione una calificación</option>
+                    <option value="1">1 - Muy Mala</option>
+                    <option value="2">2 - Mala</option>
+                    <option value="3">3 - Regular</option>
+                    <option value="4">4 - Buena</option>
+                    <option value="5">5 - Muy Buena</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="experienceRating">Calificación de la Experiencia en su tesis:</label>
+                <select id="experienceRating" name="experienceRating" required>
+                    <option value="">Seleccione una calificación</option>
+                    <option value="1">1 - Muy Mala</option>
+                    <option value="2">2 - Mala</option>
+                    <option value="3">3 - Regular</option>
+                    <option value="4">4 - Buena</option>
+                    <option value="5">5 - Muy Buena</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="comments">Comentarios:</label>
+                <textarea id="comments" name="comments" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="button" onclick="submitFeedback()">Enviar Comentarios</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Universidad ULEAM. Todos los derechos reservados.</p>
+    </div>
+
+    <script>
+        function submitFeedback() {
+            const studentName = document.getElementById('studentName').value;
+            const professorName = document.getElementById('professorName').value;
+            const professorRating = document.getElementById('professorRating').value;
+            const experienceRating = document.getElementById('experienceRating').value;
+            const comments = document.getElementById('comments').value;
+
+            alert(`Gracias por tu retroalimentación, ${studentName}.`);
+
+            // Aquí puedes agregar la lógica para enviar los datos al servidor.
+            console.log({
+                studentName,
+                professorName,
+                professorRating,
+                experienceRating,
+                comments
+            });
+        }
+    </script>
+</body>
+</html>

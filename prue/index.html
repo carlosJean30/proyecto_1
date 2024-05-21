@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container sign-in-container">
+            <h1 class="center">Iniciar Sesión</h1>
+            <form id="loginForm">
+                <input type="email" placeholder="Email" id="loginEmail" name="loginEmail" required>
+                <input type="password" placeholder="Password" id="loginPassword" name="loginPassword" required>
+                <button type="submit">Iniciar Sesión</button>
+                <p id="loginMessage"></p> <!-- Aquí se mostrará el mensaje de advertencia -->
+            </form>
+        </div>        
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>¡Bienvenido!</h1>
+                    <p>Inicia sesión con tu cuenta</p>
+                    <button class="ghost" id="signIn">Inicia sesión</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hola!!!</h1>
+                    <p>¿No tienes una cuenta? <a href="registro.html">Regístrate</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evitar el envío tradicional del formulario
+
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const loginMessage = document.getElementById('loginMessage');
+
+            const storedUser = JSON.parse(localStorage.getItem(email));
+
+            if (storedUser && storedUser.email === email && storedUser.password === password) {
+                loginMessage.textContent = 'Inicio de sesión exitoso! Redireccionando...';
+                setTimeout(() => {
+                    window.location.href = 'menu.html'; // Redirigir al menú
+                }, 2000);
+            } else {
+                loginMessage.textContent = 'Error: El correo electrónico o la contraseña no son correctos. Por favor, verifique sus credenciales.';
+            }
+        });
+    </script>
+</body>
+</html>

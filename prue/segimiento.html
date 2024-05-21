@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Programación y Seguimiento del Progreso</title>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css' rel='stylesheet' />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/locales/es.js'></script>
+    <link rel="stylesheet" href="estilo/sigimiento.css">
+        
+</head>
+<body>
+    <h1>Programación y Seguimiento del Progreso</h1>
+    <h2><p>Calendario y metas para el seguimiento del progreso del trabajo de tesis.</p></h2>
+
+    <div class="container">
+        <div id='calendar'></div>
+    </div>
+
+    <div class="progress-container">
+        <h2>Progreso de la Tesis</h2>
+        <div class="progress-bar" id="progressBar" style="width: 0%;">0%</div>
+    </div>
+
+    <div class="container hidden" id="eventFormContainer">
+        <h2>Agregar Evento</h2>
+        <form id="eventForm">
+            <div class="form-group">
+                <label for="eventTitle">Título del Evento:</label>
+                <input type="text" id="eventTitle" name="eventTitle" required>
+            </div>
+            <div class="form-group">
+                <label for="eventDate">Fecha del Evento:</label>
+                <input type="date" id="eventDate" name="eventDate" required>
+            </div>
+            <button type="submit">Agregar Evento</button>
+        </form>
+    </div>
+
+    <script>
+        // Simulación de datos del perfil de usuario
+        const userProfile = {
+            role: 'profesor', // Cambia a 'estudiante' para probar la lógica
+            name: 'Profesor Ejemplo'
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var progressBar = document.getElementById('progressBar');
+            var progress = 0;
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                initialDate: new Date(),
+                locale: 'es',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: [
+                    {
+                        title: 'Fecha de Hoy',
+                        start: new Date(),
+                        allDay: true
+                    }
+                ]
+            });
+
+            calendar.render();
+
+            // Mostrar el formulario de eventos solo si el usuario es profesor
+            if (userProfile.role === 'profesor') {
+                document.getElementById('eventFormContainer').classList.remove('hidden');
+            }
+
+            document.getElementById('eventForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var eventTitle = document.getElementById('eventTitle').value;
+                var eventDate = document.getElementById('eventDate').value;
+                calendar.addEvent({
+                    title: eventTitle,
+                    start: eventDate,
+                    allDay: true
+                });
+                alert(`Evento agregado: ${eventTitle} el ${eventDate}`);
+                // Aumentar el progreso en un 10% con cada revisión
+                increaseProgress(10);
+            });
+
+            function increaseProgress(amount) {
+                progress = Math.min(progress + amount, 100);
+                updateProgressBar(progress);
+            }
+
+            function updateProgressBar(progress) {
+                progressBar.style.width = progress + '%';
+                progressBar.textContent = progress + '%';
+            }
+        });
+    </script>
+</body>
+</html>

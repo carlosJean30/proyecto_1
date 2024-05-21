@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Reportes y Estadísticas</title>
+    <link rel="stylesheet" href="estilo/reporte.css">
+</head>
+<body>
+    <h1>Reportes y Estadísticas</h1>
+    <p>Interfaz para generar reportes y estadísticas sobre el proceso de tesis.</p>
+
+    <div class="container">
+        <div class="report-section">
+            <h2>Generación de Reportes</h2>
+            <form id="reportForm">
+                <div class="form-group">
+                    <label for="reportType">Tipo de Reporte:</label>
+                    <select id="reportType" name="reportType" required>
+                        <option value="">Seleccione un tipo de reporte</option>
+                        <option value="progress">Progreso de Tesis</option>
+                        <option value="feedback">Retroalimentación de Estudiantes</option>
+                        <option value="grades">Calificaciones de Tesis</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="timePeriod">Período de Tiempo:</label>
+                    <input type="month" id="timePeriod" name="timePeriod" required>
+                </div>
+                <div class="form-group">
+                    <label for="comments">Comentarios:</label>
+                    <textarea id="comments" name="comments" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="generateReport()">Generar Reporte</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="stats-section">
+            <h2>Visualización de Estadísticas</h2>
+            <div id="statsContainer">
+                <!-- Aquí se mostrarán las estadísticas -->
+                <p>Seleccione un reporte y período de tiempo para visualizar las estadísticas.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2024 Universidad de Ejemplo. Todos los derechos reservados.</p>
+    </div>
+
+    <script>
+        function generateReport() {
+            const reportType = document.getElementById('reportType').value;
+            const timePeriod = document.getElementById('timePeriod').value;
+            const comments = document.getElementById('comments').value;
+
+            if (reportType && timePeriod && comments) {
+                const date = new Date(timePeriod);
+                const month = date.toLocaleString('default', { month: 'long' });
+                const year = date.getFullYear();
+
+                alert(`El reporte está en progreso para el período de ${month} ${year}, generado exitosamente.`);
+
+                document.getElementById('statsContainer').innerHTML = `<p>Reporte de <strong>${reportType}</strong> para el período de <strong>${month} ${year}</strong> generado exitosamente.</p>`;
+            } else {
+                alert('Por favor, complete todos los campos.');
+            }
+        }
+    </script>
+</body>
+</html>

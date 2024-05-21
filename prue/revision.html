@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Revisión y Aprobación de Propuestas</title>
+    <link rel="stylesheet" href="estilo/revision.css">
+</head>
+<body>
+    <h1>Revisión y Aprobación de Propuestas</h1>
+    <p id="proposalListText"> <b>Lista de propuestas para revisión:</b></p>
+
+    <div id="proposalsContainer">
+        <!-- Aquí se agregarán las propuestas dinámicamente -->
+    </div>
+
+    <button id="addProposalButton">Agregar Propuesta</button>
+
+    <script>
+        // Función para agregar una nueva propuesta
+        function addProposal() {
+            const proposalsContainer = document.getElementById('proposalsContainer');
+            const proposalCount = proposalsContainer.children.length + 1;
+
+            const newProposal = document.createElement('div');
+            newProposal.classList.add('proposal');
+
+            const proposalTitle = document.createElement('p');
+            proposalTitle.textContent = `Propuesta #${proposalCount} - Título de la Propuesta`;
+
+            const proposalActions = document.createElement('div');
+
+            const approveButton = document.createElement('button');
+            approveButton.textContent = 'Aprobar';
+            approveButton.classList.add('approve');
+            approveButton.addEventListener('click', function() {
+                alert('¡La propuesta ha sido aceptada!');
+            });
+
+            const rejectButton = document.createElement('button');
+            rejectButton.textContent = 'Rechazar';
+            rejectButton.classList.add('reject');
+            rejectButton.addEventListener('click', function() {
+                alert('¡La propuesta ha sido denegada!');
+            });
+
+            const modifyButton = document.createElement('button');
+            modifyButton.textContent = 'Pedir cambios';
+            modifyButton.classList.add('modify');
+            modifyButton.addEventListener('click', function() {
+                // Aquí puedes agregar la lógica para subir un archivo
+                alert('Subir archivo para cambios');
+            });
+
+            proposalActions.appendChild(approveButton);
+            proposalActions.appendChild(rejectButton);
+            proposalActions.appendChild(modifyButton);
+
+            newProposal.appendChild(proposalTitle);
+            newProposal.appendChild(proposalActions);
+
+            proposalsContainer.appendChild(newProposal);
+        }
+
+        document.getElementById('addProposalButton').addEventListener('click', addProposal);
+    </script>
+</body>
+</html>
